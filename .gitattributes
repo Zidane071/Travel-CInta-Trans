@@ -1,7 +1,0 @@
-# Auto detect text files and perform LF normalization
-* text=auto
-<<<<<<< HEAD
-* .JavaScript linguist-detectable=false
-=======
-* .JavaScript linguist-detectable=false
->>>>>>> 48bd6395036533a4958d3b0221cb4407a9573119
