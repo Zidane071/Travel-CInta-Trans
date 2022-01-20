@@ -180,7 +180,6 @@
             let i = current_datetime.getDay();
             let formatted_date = current_datetime.getDate() + " " + months[current_datetime.getMonth()] + " " + current_datetime.getFullYear()
 
-            alert(tanggal)
             // CLICKED METHOD
             if (nama == 0 || tanggal == 0) {
                 window.location.href = "whatsapp://send?text=Hallo Cinta Travel , Saya Ingin Menggunakan Jasa Travel ini ! &phone="+phone;
@@ -201,7 +200,6 @@
         $(document).ready(function () {
             $('.input-group.date').datetimepicker({
                 locale: 'id',
-                minDate: new Date(),
                 format:'DD/MM/YYYY'
             });
         });
