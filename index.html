@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en-gb" class="no-js">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Cinta Trans</title>
-    <link href="images/logo2.png" rel="icon">
-    <meta name="description" content="">
-    <meta name="author" content="WebThemez">
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />
-    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/da-slider.css" />
-    <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css" />
-    <link href="font/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/id.js" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>Cinta Trans</title>
+        <link href="images/logo2.png" rel="icon">
+        <meta name="description" content="">
+        <meta name="author" content="WebThemez">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+    
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />
+        <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/da-slider.css" />
+        <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/styles.css" />
+        <link href="font/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    </head>
 
 <body>
     <header class="header">
@@ -74,8 +76,14 @@
         <h3 style=" padding-top: 50px; font-weight: bold;" class="container">Form Pemesanan</h3>
         <div class="container" style="text-align: center;">
             <h4  style=" padding-top: 30px; font-weight: lighter; text-align: left;">Tanggal Keberangkatan</h4>
-            <div class="date" style="padding-top: 5px;">
-                <input type="text" name="date" class="form-control datepicker" id="tanggal_berangkat" autocomplete="off" placeholder="Bulan/Tanggal/Tahun">
+            <div class="form-group col-md-0">
+                <div class='input-group date datepicker'>
+                     <input type='text' class="form-control" id="tanggal_berangkat" placeholder="Tanggal/Bulan/Tahun" maxlength="10">
+                        <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-calendar">
+                              </span>
+                       </span>
+                 </div>
             </div>
             <h4  style=" padding-top: 20px; font-weight: lighter; text-align: start;">Nama Pemesan Travel</h4>
             <div class="nama_pemesan"  style=" padding-top: 5px; padding-bottom: 20px;">
@@ -161,6 +169,9 @@
             // GET VALUE INPUT
             var nama = document.getElementById('nama_pemesan').value;
             var tanggal = document.getElementById('tanggal_berangkat').value;
+            var tanggal = tanggal.split(" ")[0]
+            var tanggal = tanggal.split("/")
+            var tanggal = tanggal[1]+"/"+tanggal[0]+"/"+tanggal[2]
 
             const months = ["Januari", "Februari", "Maret","April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
             const day = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
@@ -180,11 +191,19 @@
     </script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/id.js"></script>
     <script type="text/javascript">
-        $('.datepicker').datepicker({
-            language: "id"
-         });
+        $(document).ready(function () {
+            $('.input-group.date').datetimepicker({
+                locale: 'id',
+                minDate: new Date()
+            });
+        });
     </script>
 </body>
 </html>
