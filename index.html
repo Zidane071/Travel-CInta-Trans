@@ -7,7 +7,6 @@
         <link href="images/logo2.png" rel="icon">
         <meta name="description" content="">
         <meta name="author" content="WebThemez">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
     
         <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -78,7 +77,7 @@
             <h4  style=" padding-top: 30px; font-weight: lighter; text-align: left;">Tanggal Keberangkatan</h4>
             <div class="form-group col-md-0">
                 <div class='input-group date datepicker'>
-                     <input type='text' class="form-control" id="tanggal_berangkat" placeholder="Tanggal/Bulan/Tahun" maxlength="10">
+                     <input type='text' value="0" class="form-control" id="tanggal_berangkat" placeholder="Tanggal/Bulan/Tahun" maxlength="10">
                         <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar">
                               </span>
@@ -181,6 +180,7 @@
             let i = current_datetime.getDay();
             let formatted_date = current_datetime.getDate() + " " + months[current_datetime.getMonth()] + " " + current_datetime.getFullYear()
 
+            alert(tanggal)
             // CLICKED METHOD
             if (nama == 0 || tanggal == 0) {
                 window.location.href = "whatsapp://send?text=Hallo Cinta Travel , Saya Ingin Menggunakan Jasa Travel ini ! &phone="+phone;
@@ -201,7 +201,8 @@
         $(document).ready(function () {
             $('.input-group.date').datetimepicker({
                 locale: 'id',
-                minDate: new Date()
+                minDate: new Date(),
+                format:'DD/MM/YYYY'
             });
         });
     </script>
